@@ -6,6 +6,7 @@
 body {
   font-family: sans-serif;
   background-color: #f9f5eb;
+  overflow: hidden;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -17,18 +18,21 @@ a {
   text-decoration: none;
 }
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #222;
   color: #fff;
-  padding: 0 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+.btns {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 .logo {
+  display: block;
+  width: max-content;
+  margin: 20px auto;
   font-size: 2rem;
   font-weight: bolder;
   font-family: monospace;
@@ -38,8 +42,14 @@ a {
   padding: 0 10px;
   border-radius: 7px;
 }
-main {
-  margin-top: 3rem;
+.home h2 {
+  font-size: 5rem;
+  text-align: center;
+  padding: 100px;
+}
+.home h2:last-child {
+  color: #fff;
+  -webkit-text-stroke: 2px #000;
 }
 .category-section {
   background-color: #222;
@@ -62,9 +72,8 @@ main {
 }
 .news-section {
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
+  overflow-y: overlay;
+  height: calc(100vh - 23rem);
 }
 .news-container {
   font-size: 16px;
@@ -105,6 +114,25 @@ main {
   padding: 2px 5px;
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #222;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 0px;
+}
+footer p {
+  padding: 10px;
+  color: #fff;
+  background-color: #222;
+  text-align: center;
+}
+
 /* ============ */
 .active {
   background-color: gainsboro;
@@ -117,11 +145,15 @@ main {
   .btn {
     font-size: 0.8rem;
   }
-  main {
-    margin-top: 2rem;
-  }
 }
 
+@media screen and (max-width: 800px) {
+  .home h2 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 50px;
+  }
+}
 @media screen and (min-width: 800px) {
   a.logo {
     font-size: 2.3rem;
@@ -130,6 +162,18 @@ main {
     font-size: 1.5rem;
   }
   .news-section {
+    display: grid;
+    gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
   }
+}
+button:hover,
+.logo:hover,
+.save-icon:hover,
+.btns a:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }
